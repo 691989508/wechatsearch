@@ -1,0 +1,63 @@
+
+
+{% extends "base.html" %}
+{% block title %}第{{page}}页{% endblock %}
+{% block css %}/static/styles/pages/page.css{% endblock %}
+{% block content %}
+
+<div class="page-main clearfix">
+    {% for article in articles %}
+    <article class="mod">
+        <header class="mod-hd">
+            <time class="time">{{article.create_time}}</time><br>
+            <div class="profile-info">
+                <a title="{{article.title}}" href="{{article.url}}" target="_blank">{{article.title}}</a>
+            </div>
+        </header>
+    </article>
+
+
+    {% endfor %}
+
+
+
+    <ul class="pagination modal-1">
+      <li><a href="/" class="prev">首页</a></li>
+        {% if page >1 %}
+        <li><a href="/page/{{page-1}}" class="prev">上一页</a></li>
+        {% endif %}
+        {% for i in range(3) if page-i-1>=0 %}
+            {% if page-2+i>0%}
+            <li><a href="/page/{{page-2+i}}">{{page-2+i}}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        <li><a href="#" class="active">{{page}}</a></li>
+
+        {% for i in range(3) if last_page-page-i-1>0 %}
+            <li><a href="/page/{{page+1+i}}">{{page+1+i}}</a></li>
+        {% endfor %}
+        {% if page < last_page %}
+        <li><a href="/page/{{page+1}}" class="prev">下一页</a></li>
+        {% endif %}
+      <li><a href="/page/{{last_page}}" class="next">尾页</a></li>
+    </ul><br>
+
+        <!--<ul class="pagination modal-1">-->
+      <!--<li><a href="#" class="prev">&laquo</a></li>-->
+      <!--<li><a href="#" class="active">1</a></li>-->
+      <!--<li> <a href="#">2</a></li>-->
+      <!--<li> <a href="#">3</a></li>-->
+      <!--<li> <a href="#">4</a></li>-->
+      <!--<li> <a href="#">5</a></li>-->
+      <!--<li> <a href="#">6</a></li>-->
+      <!--<li> <a href="#">7</a></li>-->
+      <!--<li> <a href="#">8</a></li>-->
+      <!--<li> <a href="#">9</a></li>-->
+      <!--<li><a href="#" class="next">&raquo;</a></li>-->
+    <!--</ul><br><br>-->
+
+</div>
+{% endblock %}
+
+

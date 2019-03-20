@@ -1,0 +1,33 @@
+/* header-search */
+
+
+
+
+.header-search {
+    margin: auto;
+    background: white;
+    padding: 0px;
+
+}
+
+.t-input {
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-right:0px;
+	margin-left:0px;
+    maxlength:255;
+    width: 32%;
+    height: 30px;
+    font-size: 30px;
+    margin-left: 34%;
+    margin-top: 1%;
+}
+
+.search_sub {
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-right:0px;
+	margin-left:0px;
+    width: 50px;
+    height: 36px;
+}

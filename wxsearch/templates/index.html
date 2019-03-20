@@ -1,0 +1,56 @@
+
+
+{% extends "base.html" %}
+{% block title %}首页{% endblock %}
+{% block css %}../static/styles/pages/index.css{% endblock %}
+
+
+
+
+{% block content %}
+<div class="page-main clearfix">
+    {% for article in articles %}
+    <article class="mod">
+        <header class="mod-hd">
+            <time class="time">{{article.create_time}}</time><br>
+            <!--<a href="#" class="avatar">-->
+                <!--<img src="">-->
+            <!--</a>-->
+            <div class="profile-info">
+                <a title="{{article.title}}" href="{{article.url}}" target="_blank">{{article.title}}</a>
+            </div>
+        </header>
+    </article>
+
+
+    {% endfor %}
+    <ul class="pagination modal-1">
+
+      <li><a href="/page/1" class="prev">首页</a></li>
+      <li><a href="#" class="active">1</a>
+        {% for page_num in range(8)%}
+            <li><a href="/page/{{page_num+2}}">{{page_num+2}}</a></li>
+        {% endfor %}
+        {% if page < last_page %}
+        <li><a href="/page/{{page+1}}" class="prev">下一页</a></li>
+        {% endif %}
+      <li><a href="/page/{{last_page}}" class="next">尾页</a></li>
+    </ul><br>
+    <!--<ul class="pagination modal-1">-->
+      <!--<li><a href="#" class="prev">&laquo</a></li>-->
+      <!--<li><a href="#" class="active">1</a></li>-->
+      <!--<li> <a href="#">2</a></li>-->
+      <!--<li> <a href="#">3</a></li>-->
+      <!--<li> <a href="#">4</a></li>-->
+      <!--<li> <a href="#">5</a></li>-->
+      <!--<li> <a href="#">6</a></li>-->
+      <!--<li> <a href="#">7</a></li>-->
+      <!--<li> <a href="#">8</a></li>-->
+      <!--<li> <a href="#">9</a></li>-->
+      <!--<li><a href="#" class="next">&raquo;</a></li>-->
+    <!--</ul><br>-->
+
+</div>
+{% endblock %}
+
+
